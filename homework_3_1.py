@@ -13,3 +13,10 @@ def test_cookie():
         print(f"Cookie: {name} = {value}")
         assert name == "HomeWork", "Unexpected cookie name."
         assert value == "hw_value", "Unexpected cookie value."
+
+
+def test_headers():
+    link = requests.get('https://playground.learnqa.ru/api/homework_header')
+    headers = link.headers
+    print(headers)
+    assert len(headers.keys()) == 9 and len(headers.values()) == 9, f"None or not all headers are presented in API call"
